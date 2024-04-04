@@ -1,0 +1,4 @@
+streamlit
+streamlit-pdf-viewer
+PyPDF2
+openai
