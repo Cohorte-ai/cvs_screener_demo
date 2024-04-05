@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8501
 
 # Run the Streamlit application
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "app.py","--theme.base","light"]
