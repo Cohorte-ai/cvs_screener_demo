@@ -27,7 +27,7 @@ def match_and_score(job_description, cvs):
         # Construct prompt for GPT
         prompt = [
             {"role": "system", "content": f"                Please assess the provided CV against the given job description with extreme scrutiny. Assign a score (High/Medium/Low) only if the CV is a near-perfect match; otherwise, assign a very low score. Consider the following criteria meticulously:                                1. **Skills Matching**: Determine if the CV explicitly mentions and demonstrates proficiency in the key skills outlined in the job description.                2. **Qualifications Evaluation**: Verify if the candidate possesses the exact educational requirements, certifications, or licenses specified in the job description.                3. **Experience Relevance**: Evaluate the candidate's work experience to ensure it closely aligns with the roles and responsibilities described in the job description, with no deviations.                4. **Achievements and Accomplishments**: Look for exceptional achievements or recognitions in the CV that unequivocally prove the candidate's ability to excel in the role specified in the job description.                5. **Additional Factors**: Scrutinize any additional criteria mentioned in the job description, such as cultural fit, adaptability, or leadership potential, and ensure the CV surpasses expectations in all aspects.                6. **Overall Fit**: Demand nothing short of perfection in the alignment between the CV and the job description, encompassing every facet of skills, qualifications, experiences, achievements, and additional factors.                                Job Description:                {job_description}                                CV:                {cv_text}                                Provide a score (High/Medium/Low) only if the CV is exceptionally close to perfection. If there are any shortcomings or deviations, assign a very low score with detailed justifications. Be relentless in your assessment, allowing only for the utmost precision in matching.                                Follow this pattern meticulously:                                Response Pattern:                score - reason:            "},
-            {"role": "user", "content": "Get score and reason and be very short and consise"}
+            {"role": "user", "content": "Get score and reason and be very short and consise and maintain the format score - reason"}
         ]
         # Request GPT to generate score and reason
         response = client.chat.completions.create(
@@ -75,7 +75,7 @@ def main():
     job_description = st.text_area("Job Description")
 
     # Button to load CVs
-    cvs_directory_path = "/Users/abhishek/TP/cvs_screener_demo/cv"
+    cvs_directory_path = "./cv"
     if st.button("Review All CVs"):
         if os.path.isdir(cvs_directory_path):
             cvs = load_cvs(cvs_directory_path)
