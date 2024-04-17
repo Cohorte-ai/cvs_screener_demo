@@ -6,8 +6,10 @@ import base64
 from streamlit_pdf_viewer import pdf_viewer
 import json
 # Set your OpenAI API key
-api_key = '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'
-client = OpenAI(api_key=api_key)
+from dotenv import load_dotenv
+
+load_dotenv()
+client = OpenAI()
 
 # Function to load CVs from the specified directory
 def load_cvs(directory):
