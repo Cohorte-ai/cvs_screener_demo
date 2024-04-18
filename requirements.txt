@@ -2,3 +2,5 @@ streamlit
 streamlit-pdf-viewer
 PyPDF2
 openai
+streamlit-extras
+python-dotenv
