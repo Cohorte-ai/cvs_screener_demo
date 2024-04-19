@@ -7,7 +7,7 @@ from streamlit_pdf_viewer import pdf_viewer
 import json
 # Set your OpenAI API key
 from dotenv import load_dotenv
-from streamlit_extras.app_logo import add_logo 
+# from streamlit_extras.app_logo import add_logo 
 load_dotenv()
 client = OpenAI()
 
@@ -65,7 +65,7 @@ def main():
     st.set_page_config(layout="wide")
 
     st.title("CV Matching App")
-    add_logo("cohorte_logo_content.svg", height=300)
+    # add_logo("cohorte_logo_content.svg", height=300)
 
     # Input field for job description
     job_description = st.text_area("Job Description")
